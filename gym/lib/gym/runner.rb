@@ -140,6 +140,7 @@ module Gym
 
     # Makes sure the archive is there and valid
     def verify_archive
+      UI.error("Specified archive path directory does not exist.") unless Dir.Exists(BuildCommandGenerator.archive_path)?
       # from https://github.com/fastlane/fastlane/issues/3179
       if (Dir[BuildCommandGenerator.archive_path + "/*"]).count == 0
         ErrorHandler.handle_empty_archive
